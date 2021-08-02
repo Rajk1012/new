@@ -1,0 +1,1004 @@
+{
+  "templateId" : "Encounter 1",
+  "semVer" : "0.1.0",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "encounter_1",
+    "name" : "Encounter 1",
+    "localizedName" : "Encounter 1",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "Encounter 1"
+    },
+    "localizedDescriptions" : {
+      "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "age",
+      "name" : "Age",
+      "localizedName" : "Age",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.age.v0",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Age"
+      },
+      "localizedDescriptions" : {
+        "en" : "Details about the age of an individual at a specific point in time."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.age.v0]",
+      "children" : [ {
+        "id" : "chronological_age",
+        "name" : "Chronological age",
+        "localizedName" : "Chronological age",
+        "rmType" : "DV_DURATION",
+        "nodeId" : "at0004",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Chronological age"
+        },
+        "localizedDescriptions" : {
+          "en" : "Duration of time since birth."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.age.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value",
+        "inputs" : [ {
+          "suffix" : "year",
+          "type" : "INTEGER",
+          "validation" : {
+            "range" : {
+              "minOp" : ">=",
+              "min" : 0,
+              "maxOp" : "<=",
+              "max" : 200
+            }
+          }
+        }, {
+          "suffix" : "month",
+          "type" : "INTEGER",
+          "validation" : {
+            "range" : {
+              "minOp" : ">=",
+              "min" : 0
+            }
+          }
+        }, {
+          "suffix" : "day",
+          "type" : "INTEGER",
+          "validation" : {
+            "range" : {
+              "minOp" : ">=",
+              "min" : 0
+            }
+          }
+        }, {
+          "suffix" : "week",
+          "type" : "INTEGER",
+          "validation" : {
+            "range" : {
+              "minOp" : ">=",
+              "min" : 0
+            }
+          }
+        }, {
+          "suffix" : "hour",
+          "type" : "INTEGER",
+          "validation" : {
+            "range" : {
+              "minOp" : ">=",
+              "min" : 0
+            }
+          }
+        }, {
+          "suffix" : "minute",
+          "type" : "INTEGER",
+          "validation" : {
+            "range" : {
+              "minOp" : ">=",
+              "min" : 0
+            }
+          }
+        }, {
+          "suffix" : "second",
+          "type" : "INTEGER",
+          "validation" : {
+            "range" : {
+              "minOp" : ">=",
+              "min" : 0
+            }
+          }
+        } ]
+      }, {
+        "id" : "adjusted_age",
+        "name" : "Adjusted age",
+        "localizedName" : "Adjusted age",
+        "rmType" : "DV_DURATION",
+        "nodeId" : "at0005",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Adjusted age"
+        },
+        "localizedDescriptions" : {
+          "en" : "Chronological age of an infant, less the number of weeks or months they were born premature."
+        },
+        "annotations" : {
+          "comment" : "Also known as 'Corrected age'."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.age.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0005]/value",
+        "inputs" : [ {
+          "suffix" : "year",
+          "type" : "INTEGER",
+          "validation" : {
+            "range" : {
+              "minOp" : ">=",
+              "min" : 0
+            }
+          }
+        }, {
+          "suffix" : "month",
+          "type" : "INTEGER",
+          "validation" : {
+            "range" : {
+              "minOp" : ">=",
+              "min" : 0
+            }
+          }
+        }, {
+          "suffix" : "day",
+          "type" : "INTEGER",
+          "validation" : {
+            "range" : {
+              "minOp" : ">=",
+              "min" : 0
+            }
+          }
+        }, {
+          "suffix" : "week",
+          "type" : "INTEGER",
+          "validation" : {
+            "range" : {
+              "minOp" : ">=",
+              "min" : 0
+            }
+          }
+        }, {
+          "suffix" : "hour",
+          "type" : "INTEGER",
+          "validation" : {
+            "range" : {
+              "minOp" : ">=",
+              "min" : 0
+            }
+          }
+        }, {
+          "suffix" : "minute",
+          "type" : "INTEGER",
+          "validation" : {
+            "range" : {
+              "minOp" : ">=",
+              "min" : 0
+            }
+          }
+        }, {
+          "suffix" : "second",
+          "type" : "INTEGER",
+          "validation" : {
+            "range" : {
+              "minOp" : ">=",
+              "min" : 0
+            }
+          }
+        } ]
+      }, {
+        "id" : "age_category",
+        "name" : "Age category",
+        "localizedName" : "Age category",
+        "rmType" : "DV_TEXT",
+        "nodeId" : "at0007",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Age category"
+        },
+        "localizedDescriptions" : {
+          "en" : "Duration of time since birth, expressed as a specified age range or grouping."
+        },
+        "annotations" : {
+          "comment" : "Categories for each specific use case will be defined within a template."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.age.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0007]/value",
+        "inputs" : [ {
+          "type" : "TEXT"
+        } ]
+      }, {
+        "id" : "comment",
+        "name" : "Comment",
+        "localizedName" : "Comment",
+        "rmType" : "DV_TEXT",
+        "nodeId" : "at0006",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Comment"
+        },
+        "localizedDescriptions" : {
+          "en" : "Additional narrative about the age of an individual, not captured in other fields."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.age.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0006]/value",
+        "inputs" : [ {
+          "type" : "TEXT"
+        } ]
+      }, {
+        "id" : "time",
+        "name" : "Time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.age.v0]/data[at0001]/events[at0002]/time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.age.v0]/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.age.v0]/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.age.v0]/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "symptom_sign_screening_questionnaire",
+      "name" : "Symptom/sign screening questionnaire",
+      "localizedName" : "Symptom/sign screening questionnaire",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.symptom_sign_screening.v0",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Symptom/sign screening questionnaire"
+      },
+      "localizedDescriptions" : {
+        "en" : "An individual- or self-reported questionnaire screening for symptoms and signs."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v0]",
+      "children" : [ {
+        "id" : "any_event",
+        "name" : "Any event",
+        "localizedName" : "Any event",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Any event"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v0]/data[at0001]/events[at0002]",
+        "children" : [ {
+          "id" : "screening_purpose",
+          "name" : "Screening purpose",
+          "localizedName" : "Screening purpose",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0034",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Screening purpose"
+          },
+          "localizedDescriptions" : {
+            "en" : "The reason for overall screening."
+          },
+          "annotations" : {
+            "comment" : "For example: screening for an infectious disease, such as SARS-COV-2."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0034]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "presence_of_any_symptoms_or_signs",
+          "name" : "Presence of any symptoms or signs?",
+          "localizedName" : "Presence of any symptoms or signs?",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0028",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Presence of any symptoms or signs?"
+          },
+          "localizedDescriptions" : {
+            "en" : "Presence of any relevant symptoms or signs."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "at0031",
+              "label" : "Present",
+              "localizedLabels" : {
+                "en" : "Present"
+              },
+              "localizedDescriptions" : {
+                "en" : "Symptoms or signs are present."
+              },
+              "termBindings" : {
+                "SNOMED-CT" : {
+                  "value" : "[SNOMED-CT::410515003]",
+                  "terminologyId" : "SNOMED-CT"
+                }
+              }
+            }, {
+              "value" : "at0032",
+              "label" : "Absent",
+              "localizedLabels" : {
+                "en" : "Absent"
+              },
+              "localizedDescriptions" : {
+                "en" : "Symptoms or signs are not present."
+              },
+              "termBindings" : {
+                "SNOMED-CT" : {
+                  "value" : "[SNOMED-CT::410516002]",
+                  "terminologyId" : "SNOMED-CT"
+                }
+              }
+            }, {
+              "value" : "at0033",
+              "label" : "Unknown",
+              "localizedLabels" : {
+                "en" : "Unknown"
+              },
+              "localizedDescriptions" : {
+                "en" : "It is not known whether any symptoms or signs are present or absent."
+              },
+              "termBindings" : {
+                "SNOMED-CT" : {
+                  "value" : "[SNOMED-CT::261665006]",
+                  "terminologyId" : "SNOMED-CT"
+                }
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "onset_of_any_symptoms_or_signs",
+          "name" : "Onset of any symptoms or signs",
+          "localizedName" : "Onset of any symptoms or signs",
+          "rmType" : "DV_DATE_TIME",
+          "nodeId" : "at0029",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Onset of any symptoms or signs"
+          },
+          "localizedDescriptions" : {
+            "en" : "The date/time when any symptoms or signs were first noticed."
+          },
+          "annotations" : {
+            "comment" : "Partial dates are allowed."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0029]/value",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ]
+        }, {
+          "id" : "description",
+          "name" : "Description",
+          "localizedName" : "Description",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0036",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Description"
+          },
+          "localizedDescriptions" : {
+            "en" : "Narrative description about all symptoms or signs."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0036]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "specific_symptom_sign",
+          "name" : "Specific symptom/sign",
+          "localizedName" : "Specific symptom/sign",
+          "rmType" : "CLUSTER",
+          "nodeId" : "at0022",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Specific symptom/sign"
+          },
+          "localizedDescriptions" : {
+            "en" : "Grouping of data elements related to screening for a single symptom or sign."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0022]",
+          "children" : [ {
+            "id" : "symptom_or_sign_name",
+            "name" : "Symptom or sign name",
+            "localizedName" : "Symptom or sign name",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Symptom or sign name"
+            },
+            "localizedDescriptions" : {
+              "en" : "Name of the symptom or sign being screened."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0022]/items[at0004]/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "presence",
+            "name" : "Presence?",
+            "localizedName" : "Presence?",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0005",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Presence?"
+            },
+            "localizedDescriptions" : {
+              "en" : "Presence of the symptom or sign."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0022]/items[at0005]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0023",
+                "label" : "Present",
+                "localizedLabels" : {
+                  "en" : "Present"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The specific symptom or sign is present."
+                },
+                "termBindings" : {
+                  "SNOMED-CT" : {
+                    "value" : "[SNOMED-CT::410515003]",
+                    "terminologyId" : "SNOMED-CT"
+                  }
+                }
+              }, {
+                "value" : "at0024",
+                "label" : "Absent",
+                "localizedLabels" : {
+                  "en" : "Absent"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The specific symptom or sign is not present."
+                },
+                "termBindings" : {
+                  "SNOMED-CT" : {
+                    "value" : "[SNOMED-CT::410516002]",
+                    "terminologyId" : "SNOMED-CT"
+                  }
+                }
+              }, {
+                "value" : "at0027",
+                "label" : "Unknown",
+                "localizedLabels" : {
+                  "en" : "Unknown"
+                },
+                "localizedDescriptions" : {
+                  "en" : "It is not known whether the symptom or sign is present or absent."
+                },
+                "termBindings" : {
+                  "SNOMED-CT" : {
+                    "value" : "[SNOMED-CT::261665006]",
+                    "terminologyId" : "SNOMED-CT"
+                  }
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "comment",
+            "name" : "Comment",
+            "localizedName" : "Comment",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0035",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Comment"
+            },
+            "localizedDescriptions" : {
+              "en" : "Additional narrative about the specific symptom or sign, not captured in other fields."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0022]/items[at0035]/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          } ]
+        }, {
+          "id" : "overall_comment",
+          "name" : "Overall comment",
+          "localizedName" : "Overall comment",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0025",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Overall comment"
+          },
+          "localizedDescriptions" : {
+            "en" : "Additional narrative about the symptoms and signs, not captured in other fields."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0025]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v0]/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v0]/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v0]/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.symptom_sign_screening.v0]/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "condition_screening_questionnaire",
+      "name" : "Condition screening questionnaire",
+      "localizedName" : "Condition screening questionnaire",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.condition_screening.v0",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Condition screening questionnaire"
+      },
+      "localizedDescriptions" : {
+        "en" : "An screeing questionnaire for conditions, including problems and diagnoses."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.condition_screening.v0]",
+      "children" : [ {
+        "id" : "any_event",
+        "name" : "Any event",
+        "localizedName" : "Any event",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Any event"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.condition_screening.v0]/data[at0001]/events[at0002]",
+        "children" : [ {
+          "id" : "screening_purpose",
+          "name" : "Screening purpose",
+          "localizedName" : "Screening purpose",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0034",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Screening purpose"
+          },
+          "localizedDescriptions" : {
+            "en" : "The reason for overall screening."
+          },
+          "annotations" : {
+            "comment" : "For example: pre-operative screening."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.condition_screening.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0034]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "presence_of_any_conditions",
+          "name" : "Presence of any conditions?",
+          "localizedName" : "Presence of any conditions?",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "at0028",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Presence of any conditions?"
+          },
+          "localizedDescriptions" : {
+            "en" : "Presence of any relevant conditions."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.condition_screening.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/value",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "at0031",
+              "label" : "Present",
+              "localizedLabels" : {
+                "en" : "Present"
+              },
+              "localizedDescriptions" : {
+                "en" : "Conditions are present."
+              },
+              "termBindings" : {
+                "SNOMED-CT" : {
+                  "value" : "[SNOMED-CT::410515003]",
+                  "terminologyId" : "SNOMED-CT"
+                }
+              }
+            }, {
+              "value" : "at0032",
+              "label" : "Absent",
+              "localizedLabels" : {
+                "en" : "Absent"
+              },
+              "localizedDescriptions" : {
+                "en" : "Conditions are not present."
+              },
+              "termBindings" : {
+                "SNOMED-CT" : {
+                  "value" : "[SNOMED-CT::410516002]",
+                  "terminologyId" : "SNOMED-CT"
+                }
+              }
+            }, {
+              "value" : "at0033",
+              "label" : "Unknown",
+              "localizedLabels" : {
+                "en" : "Unknown"
+              },
+              "localizedDescriptions" : {
+                "en" : "It is not known whether any conditions are present or absent."
+              },
+              "termBindings" : {
+                "SNOMED-CT" : {
+                  "value" : "[SNOMED-CT::261665006]",
+                  "terminologyId" : "SNOMED-CT"
+                }
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "specific_condition",
+          "name" : "Specific condition",
+          "localizedName" : "Specific condition",
+          "rmType" : "CLUSTER",
+          "nodeId" : "at0022",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Specific condition"
+          },
+          "localizedDescriptions" : {
+            "en" : "Grouping of data elements related to screening for a single condition."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.condition_screening.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0022]",
+          "children" : [ {
+            "id" : "condition_name",
+            "name" : "Condition name",
+            "localizedName" : "Condition name",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0004",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Condition name"
+            },
+            "localizedDescriptions" : {
+              "en" : "Name of the condition being screened."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.condition_screening.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0022]/items[at0004]/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "presence",
+            "name" : "Presence?",
+            "localizedName" : "Presence?",
+            "rmType" : "DV_CODED_TEXT",
+            "nodeId" : "at0005",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Presence?"
+            },
+            "localizedDescriptions" : {
+              "en" : "Presence of the condition."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.condition_screening.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0022]/items[at0005]/value",
+            "inputs" : [ {
+              "suffix" : "code",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "at0023",
+                "label" : "Present",
+                "localizedLabels" : {
+                  "en" : "Present"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The specific condition is present."
+                },
+                "termBindings" : {
+                  "SNOMED-CT" : {
+                    "value" : "[SNOMED-CT::410515003]",
+                    "terminologyId" : "SNOMED-CT"
+                  }
+                }
+              }, {
+                "value" : "at0024",
+                "label" : "Absent",
+                "localizedLabels" : {
+                  "en" : "Absent"
+                },
+                "localizedDescriptions" : {
+                  "en" : "The specific condition is not present."
+                },
+                "termBindings" : {
+                  "SNOMED-CT" : {
+                    "value" : "[SNOMED-CT::410516002]",
+                    "terminologyId" : "SNOMED-CT"
+                  }
+                }
+              }, {
+                "value" : "at0027",
+                "label" : "Unknown",
+                "localizedLabels" : {
+                  "en" : "Unknown"
+                },
+                "localizedDescriptions" : {
+                  "en" : "It is not known whether the condition is present or absent."
+                },
+                "termBindings" : {
+                  "SNOMED-CT" : {
+                    "value" : "[SNOMED-CT::261665006]",
+                    "terminologyId" : "SNOMED-CT"
+                  }
+                }
+              } ]
+            } ]
+          } ]
+        }, {
+          "id" : "comment",
+          "name" : "Comment",
+          "localizedName" : "Comment",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0025",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Comment"
+          },
+          "localizedDescriptions" : {
+            "en" : "Additional narrative about the conditions, not captured in other fields.\r\n"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.condition_screening.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0025]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.condition_screening.v0]/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.condition_screening.v0]/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.condition_screening.v0]/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.condition_screening.v0]/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}

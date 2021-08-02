@@ -1,19 +1,19 @@
 <script lang="ts">
-  import Counter from './lib/Counter.svelte'
   import '@shoelace-style/shoelace/dist/themes/base.css'
 import 'medblocks-ui'
-function Click(e)
+import './tailwind.css'
+import axios from  "axios"
+ function Click(e:any)
 {
   console.log(e.target.data)
   
 }
 </script>
-
-<div className="Form">
-  <h1 class="Style2">Patient Registration Form</h1>
-  <div class="Style1" >
-  <mb-form class="flex flex-col gap-5"on:mb-submit={Click}>
-    <mb-context path="resource" value="patient"></mb-context>
+<div class="container mx-auto sm:gx-8 max-w-5xl py-10">
+  <h1 class="text-2xl font-semibold font-sans">Patient Registration Form</h1>
+  <div >
+  <mb-form class="flex flex-col gap-5" on:mb-submit={Click}>
+    <mb-context path="resourceType" data="patient"></mb-context>
     <mb-input path="name[0].given" label="Name"></mb-input>
     <mb-input  Label="Age" path="age"></mb-input>
     <mb-date path="birthdate" label="Date of Birth"></mb-date>
@@ -33,7 +33,7 @@ function Click(e)
       <mb-option label="RTPCR" value="RTPCR"></mb-option>
       <mb-option label="None" value="none"></mb-option>
     </mb-buttons></div>
-    <mb-select path="symptom" type="code" label="Symptoms/Signs" multiple>
+    <mb-buttons path="symptom" type="code" label="Symptoms/Signs" multiple>
       <mb-option value="fever" label="Fever"></mb-option>
       <mb-option value="fatigue" label="Fatigue"></mb-option>
       <mb-option value="drycough" label="Dry cough"></mb-option>
@@ -43,7 +43,7 @@ function Click(e)
       <mb-option value="musclepain" label="Muscle Pain"></mb-option>
       <mb-option value="shrtnessO2" label="Shortness of breath"></mb-option>
       <mb-option value="diarrhea" label="Diarrhea"></mb-option>
-    </mb-select>
+    </mb-buttons>
     <mb-input label="Medication" path="medication" ></mb-input>
     <mb-input label="Cormobodities" path="cormobodities" ></mb-input>
     <mb-input label="SpO2 Level" path="SpO2 level" ></mb-input>
@@ -61,3 +61,6 @@ function Click(e)
   </mb-form>
   </div>
 </div>
+
+
+

@@ -1,6 +1,7 @@
 <script lang="ts">
     import '@shoelace-style/shoelace/dist/themes/base.css'
   import 'medblocks-ui'
+  import './tailwind.css'
   import axios from  "axios"
    function Click(e:any)
   {
@@ -8,11 +9,9 @@
     
   }
   </script>
-  
-  <div className="Form">
-    <h1 class="Style2">Patient Registration Form</h1>
-    <div class="Style1" >
-    <mb-form class="flex flex-col gap-5"on:mb-submit={Click}>
+    <h1 class="text-2xl font-semibold font-sans">Patient Registration Form</h1>
+    <div >
+    <mb-form class="flex flex-col gap-5" on:mb-submit={Click}>
       <mb-context path="resourceType" data="patient"></mb-context>
       <mb-input path="name[0].given" label="Name"></mb-input>
       <mb-input  Label="Age" path="age"></mb-input>
@@ -60,4 +59,3 @@
        </mb-submit>
     </mb-form>
     </div>
-  </div>
