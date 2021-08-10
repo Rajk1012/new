@@ -9,14 +9,13 @@
   </script>
 
 <div>
-    <div>
+        <div class="container">
         <Link to="/form" class="link">New Patient</Link>
         </div>
-      
-        <div>
-        <Link to="/info" class="link">Get Patient Info</Link>
+        <div class="container">
+        <Link to="/Patient" class="link">Get Patient Info</Link>
         </div>
-        <div>
+        <div class="container">
         <Link to="/post" class="link">Post Covid Care</Link>
         </div>
 </div>
