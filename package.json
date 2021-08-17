@@ -19,6 +19,7 @@
     "vite": "^2.4.3"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "bootstrap": "^5.1.0",
     "medblocks-ui": "0.0.53",
     "svelte-routing": "^1.6.0"
